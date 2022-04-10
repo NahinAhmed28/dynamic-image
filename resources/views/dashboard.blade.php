@@ -84,7 +84,7 @@ $images = DB::table('images')->get();
                                       @endphp
 
                                       <div class="card-body">
-                                        {!! $image->desc !!}
+{{--                                        {!! $image->desc !!}--}}
                                         <h3>A Title X: </h3>
                                         <hr>
                                         <h4>{{ $a_title_x_json[0] }}</h4>

@@ -31,7 +31,7 @@
                     <input type="text" class="form-control mb-3" name="title">
                     <div class="row">
                             <div class="col-md-12">
-                              <textarea name="desc" id="email_message" rows="8" cols="80"></textarea>
+{{--                              <textarea name="desc" id="email_message" rows="8" cols="80"></textarea>--}}
                             </div>
                         </div>
 

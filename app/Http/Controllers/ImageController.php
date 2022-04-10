@@ -2,28 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Image;
+//use Image;
+use Intervention\Image\Image;
 use Carbon\Carbon;
-use File;
+//use File;
 
 class ImageController extends Controller
 {
     public function store(Request $request)
     {
-      $validated = $request->validate([
-          'image' => 'required',
-          'title' => 'required',
-          'desc' => 'required',
-          'sub_title_a' => 'required',
-          'sub_title_b' => 'required',
-          'a_title_x' => 'required',
-          'a_title_z' => 'required',
-          'b_title_x' => 'required',
-          'b_title_z' => 'required',
-          'notes' => 'required',
-      ]);
+        dd($request->all());
+
+//      $validated = $request->validate([
+//          'image' => 'required',
+//          'title' => 'required',
+//          'sub_title_a' => 'required',
+//          'sub_title_b' => 'required',
+//          'a_title_x' => 'required',
+//          'a_title_z' => 'required',
+//          'b_title_x' => 'required',
+//          'b_title_z' => 'required',
+//          'notes' => 'required',
+//      ]);
 
       $a_title_z = json_encode($request->a_title_z);
       $b_title_z = json_encode($request->b_title_z);
@@ -39,7 +42,7 @@ class ImageController extends Controller
       DB::table('images')->insert([
         'image' => $image_rename,
         'title' => $request->title,
-        'desc' => $request->desc,
+//        'desc' => $request->desc,
         'sub_title_a' => $request->sub_title_a,
         'a_title_x' => $a_title_x,
         'a_title_z' => $a_title_z,
