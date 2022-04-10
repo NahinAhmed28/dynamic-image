@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
-            $table->string('title')->nullable();
-            $table->string('desc')->nullable();
-            $table->string('sub_title_a')->nullable();
-            $table->string('sub_title_b')->nullable();
-            $table->string('a_title_x')->nullable();
-            $table->string('a_title_z')->nullable();
-            $table->string('b_title_x')->nullable();
-            $table->string('b_title_z')->nullable();
+//            $table->string('title')->nullable();
+//            $table->string('desc')->nullable();
+//            $table->string('sub_title_a')->nullable();
+//            $table->string('sub_title_b')->nullable();
+//            $table->string('a_title_x')->nullable();
+//            $table->string('a_title_z')->nullable();
+//            $table->string('b_title_x')->nullable();
+//            $table->string('b_title_z')->nullable();
             $table->string('notes')->nullable();
             $table->timestamps();
         });

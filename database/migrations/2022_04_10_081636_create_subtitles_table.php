@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('subtitles', function (Blueprint $table) {
             $table->id();
+            $table->string('subtitle')->nullable();
+            $table->string('subTitleID')->nullable();
             $table->timestamps();
         });
     }

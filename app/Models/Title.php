@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Title extends Model
 {
     use HasFactory;
+
+    public function subtitles()
+
+    {
+        return $this->hasMany(ChildTitle::class, 'subTitleID', 'id');
+    }
 }
