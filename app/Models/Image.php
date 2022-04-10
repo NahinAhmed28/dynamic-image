@@ -14,6 +14,8 @@ class Image extends Model
     public function titles()
 
     {
-        return $this->hasMany(Title::class, 'TitleID', 'id');
+        return $this->hasMany(Title::class);
     }
+
+
 }

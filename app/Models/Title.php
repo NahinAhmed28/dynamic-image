@@ -14,4 +14,9 @@ class Title extends Model
     {
         return $this->hasMany(ChildTitle::class, 'subTitleID', 'id');
     }
+    public function images()
+
+    {
+        return $this->belongsTo(Image::class, 'imageID', 'id');
+    }
 }

@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('titles', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('SubTitleID')->nullable();
+            $table->unsignedBigInteger('imageID')->nullable();
+
+            // foreign keys
+            $table->foreign('imageID')->references('id')->on('images');
+
             $table->timestamps();
         });
     }
