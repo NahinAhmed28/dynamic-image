@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Title extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 
     public function subtitles()
 
     {
-        return $this->hasMany(ChildTitle::class, 'subTitleID', 'id');
+        return $this->hasMany(SubTitle::class, 'subTitleID', 'id');
     }
     public function images()
 

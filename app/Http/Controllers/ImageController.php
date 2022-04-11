@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChildTitle;
+use App\Models\SubTitle;
+use App\Models\Title;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,9 +15,40 @@ use Carbon\Carbon;
 
 class ImageController extends Controller
 {
+
     public function store(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
+        $title =  Title::create([
+           'title' => $request->title
+        ]);
+
+        foreach($request->all() as  $key=>$r){
+            if(str_contains($key ,'sub_title' )){
+                $place = explode('_' , $key);
+                $sub_title = SubTitle::create([
+                    'subtitle' => $r[0],
+                    'titleID' => $title['id']
+                ]);
+                $actPlace= ++$place[2];
+                foreach ($request->all() as $key2=>$rr){
+                    $var = 'child_title_'.$actPlace;
+
+                    if($key2 == $var){
+
+                        foreach($rr as $child){
+                            $child_title = ChildTitle::create([
+                                'childTitle' => $child,
+                                'subTitleID' => $sub_title['id']
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+
+        return back();
+
 
 //      $validated = $request->validate([
 //          'image' => 'required',

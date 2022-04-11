@@ -9,6 +9,9 @@ class ChildTitle extends Model
 {
     use HasFactory;
 
+    protected $table = 'childtitles';
+    protected $guarded = ['id'];
+
     public function subtitles()
 
     {
