@@ -38,7 +38,7 @@
     @endif
     <div class="row layout-top-spacing">
         @forelse ($images as $image)
-            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12" style="margin-left: 20px">
                 <div class="card component-card_9">
                     <img src="{!! asset('uploads') !!}/{{ $image->image }}" class="card-img-top" alt="widget-card-2">
                     <div class="card-body">
@@ -75,13 +75,9 @@
                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQMKfbC00NRDjIJcWjA6Y3PcAwcvqXDT2qVg&usqp=CAU" width="400px" class="">
                                         </div>
                                         <div class="">
-{{--                                            <h4>{{ $image->title }}</h4>--}}
+                                                {{--<h4>{{ $image->title }}</h4>--}}
                                             <p class="meta-time-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
                                             <div class="">
-{{--                                                @php--}}
-{{--                                                    $a_title_x_json = json_decode($image->a_title_x);--}}
-{{--                                                    $a_title_z_json = json_decode($image->a_title_z);--}}
-{{--                                                @endphp--}}
 
                                                 <div class="card-body">
                                                     <figure>
