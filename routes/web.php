@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
 //  })->name('dashboard');
 
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/view-details/{id}', [\App\Http\Controllers\DashboardController::class, 'viewDetails'])->name('view-details');
   // dashboard end
 
  Route::post('/image/store/', [ImageController::class, 'store'])->name('image.store');
