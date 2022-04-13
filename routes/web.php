@@ -22,13 +22,16 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
   // dashboard start
-  Route::get('/dashboard', function () {
-      return view('dashboard');
-  })->name('dashboard');
+//  Route::get('/dashboard', function () {
+//      return view('dashboard');
+//  })->name('dashboard');
+
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
   // dashboard end
 
  Route::post('/image/store/', [ImageController::class, 'store'])->name('image.store');
  Route::get('/image/delete/{id}', [ImageController::class, 'delete'])->name('image.delete');
+
 
 });
 

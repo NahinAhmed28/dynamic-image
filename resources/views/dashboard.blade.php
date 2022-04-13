@@ -81,13 +81,22 @@ $title = DB::table ('titles')->get();
 
                                       <div class="card-body">
                                           <figure>
-                                              <figcaption>example </figcaption>
+                                              <figcaption>Title </figcaption>
                                               <ul class="tree">
                                                   <li>
-                                                      <span> a</span>
+                                                      <span> Title</span>
                                                       <ul>
                                                           <li>
-                                                              <span> b</span>
+                                                              <span>sub title 1</span>
+                                                          <ul>
+                                                              <li> <span> child title 1 1</span></li>
+                                                          </ul>
+                                                          </li>
+                                                          <li>
+                                                              <span>sub title 2</span>
+                                                              <ul>
+                                                                  <li> <span> child title 2 1</span></li>
+                                                              </ul>
                                                           </li>
                                                       </ul>
                                                   </li>
