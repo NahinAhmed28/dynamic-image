@@ -20,8 +20,6 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('welcome');
 
 
-
-
 Route::middleware(['auth'])->group(function () {
   // dashboard start
   Route::get('/dashboard', function () {
