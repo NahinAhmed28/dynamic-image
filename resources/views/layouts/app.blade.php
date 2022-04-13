@@ -25,7 +25,8 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('font') !!}/plugins/select2/select2.min.css">
     <link href="{!! asset('font') !!}/assets/css/components/cards/card.css" rel="stylesheet" type="text/css" />
     <link href="{!! asset('font') !!}/assets/css/components/timeline/custom-timeline.css" rel="stylesheet" type="text/css" />
-    <link href="{!! asset('font') !!}/assets/css/components/tabs-accordian/custom-accordions.css" rel="stylesheet" type="text/css" />
+    <link href="{!! asset('css/tree.css') !!}" rel="stylesheet" type="text/css" />
+
     <style class="dark-theme">
         #chart-2 path {
             stroke: #0e1726;

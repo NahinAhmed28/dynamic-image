@@ -6,6 +6,7 @@
 @include('components.project')
 @php
 $images = DB::table('images')->get();
+$title = DB::table ('titles')->get();
 @endphp
 <style media="screen">
     .btn-info {
@@ -42,8 +43,8 @@ $images = DB::table('images')->get();
         <div class="card component-card_9">
             <img src="{!! asset('uploads') !!}/{{ $image->image }}" class="card-img-top" alt="widget-card-2">
             <div class="card-body">
-                <p class="meta-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
-                <h5 class="card-title">{{ $image->title }}</h5>
+{{--                <p class="meta-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>--}}
+{{--                <h5 class="card-title">{{ $titles->title }}</h5>--}}
                 <div class="meta-info">
                     <button type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#viewDetails{{ $loop->index }}" name="button">View Details</button>
                 </div>
@@ -57,7 +58,7 @@ $images = DB::table('images')->get();
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{ $image->title }}</h5>
+{{--                    <h5 class="modal-title">{{ $image->titles->title }}</h5>--}}
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -75,41 +76,23 @@ $images = DB::table('images')->get();
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQMKfbC00NRDjIJcWjA6Y3PcAwcvqXDT2qVg&usqp=CAU" width="400px" class="">
                                 </div>
                                 <div class="">
-                                    <h4>{{ $image->title }}</h4>
+{{--                                    <h4>{{ $image->title }}</h4>--}}
                                     <p class="meta-time-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
-                                    <div class="">
-                                      @php
-                                      $a_title_x_json = json_decode($image->a_title_x);
-                                      $a_title_z_json = json_decode($image->a_title_z);
-                                      @endphp
 
                                       <div class="card-body">
-{{--                                        {!! $image->desc !!}--}}
-                                        <h3>A Title X: </h3>
-                                        <hr>
-                                        <h4>{{ $a_title_x_json[0] }}</h4>
-                                        <ul>
-                                          @foreach ($a_title_x_json as $arry)
-                                            @if ($loop->index != 0)
-                                              <li>
-                                                {{  $arry }}
-                                              </li>
-                                            @endif
-                                          @endforeach
-                                        </ul>
-                                        <hr>
-                                        <h3>A Title Z: </h3>
-                                        <hr>
-                                        <h4>{{ $a_title_z_json[0] }}</h4>
-                                        <ul>
-                                          @foreach ($a_title_z_json as $arry)
-                                            @if ($loop->index != 0)
-                                              <li>
-                                                {{  $arry }}
-                                              </li>
-                                            @endif
-                                          @endforeach
-                                        </ul>
+                                          <figure>
+                                              <figcaption>example </figcaption>
+                                              <ul class="tree">
+                                                  <li>
+                                                      <span> a</span>
+                                                      <ul>
+                                                          <li>
+                                                              <span> b</span>
+                                                          </li>
+                                                      </ul>
+                                                  </li>
+                                              </ul>
+                                          </figure>
                                       </div>
                                     </div>
                                 </div>
@@ -119,50 +102,13 @@ $images = DB::table('images')->get();
                                 <div class="user-profile">
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQMKfbC00NRDjIJcWjA6Y3PcAwcvqXDT2qVg&usqp=CAU" width="400px" class="">
                                 </div>
-                                <div class="">
-                                    <h4>{{ $image->sub_title_b }}</h4>
-                                    <p class="meta-time-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
-                                    @php
-                                    $b_title_x_json = json_decode($image->b_title_x);
-                                    $b_title_z_json = json_decode($image->b_title_z);
-                                    @endphp
-                                    <div class="">
 
-                                      <div class="card-body">
-                                        <h3>B Title X: </h3>
-                                        <hr>
-                                        <h4>{{ $b_title_x_json[0] }}</h4>
-                                        <ul>
-                                          @foreach ($b_title_x_json as $arry)
-                                            @if ($loop->index != 0)
-                                              <li>
-                                                {{  $arry }}
-                                              </li>
-                                            @endif
-                                          @endforeach
-                                        </ul>
-                                        <hr>
-                                        <h3>B Title Z: </h3>
-                                        <hr>
-                                        <h4>{{ $b_title_z_json[0] }}</h4>
-                                        <ul>
-                                          @foreach ($b_title_z_json as $arry)
-                                            @if ($loop->index != 0)
-                                              <li>
-                                                {{  $arry }}
-                                              </li>
-                                            @endif
-                                          @endforeach
-                                        </ul>
-                                      </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="container mt-5">
                           <div class="row">
                             <p>
-                              {!! $image->notes !!}
+                                Note: {!! $image->notes !!}
                             </p>
 
                           </div>
@@ -177,6 +123,7 @@ $images = DB::table('images')->get();
             </div>
         </div>
     </div>
+
     @empty
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 layout-spacing">
         <div class="card component-card_9">
