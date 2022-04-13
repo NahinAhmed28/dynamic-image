@@ -26,7 +26,8 @@ class ImageController extends Controller
             $image = $request->file('image');
             $image_rename = rand().'.'.$image->getClientOriginalExtension();
             $newLocation = public_path('/uploads/'.$image_rename);
-            Intervention::make($image)->fit(1920 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
+//            Intervention::make($image)->fit(1080 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
+            Intervention::make($image)->orientate()->resize(1200,900)->save($newLocation);
         }
 
 
