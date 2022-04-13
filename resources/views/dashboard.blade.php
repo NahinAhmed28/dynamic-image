@@ -97,13 +97,6 @@ $title = DB::table ('titles')->get();
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="timeline-post-content">
-                                <div class="user-profile">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQMKfbC00NRDjIJcWjA6Y3PcAwcvqXDT2qVg&usqp=CAU" width="400px" class="">
-                                </div>
-
-                            </div>
                         </div>
                         <div class="container mt-5">
                           <div class="row">
@@ -137,6 +130,4 @@ $title = DB::table ('titles')->get();
         </div>
     </div>
     @endforelse
-
-</div>
 @endsection
