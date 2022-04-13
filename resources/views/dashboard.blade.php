@@ -39,12 +39,12 @@
 @endif
 <div class="row layout-top-spacing">
     @forelse ($images as $image)
-    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12"  style="margin-left: 50px">
         <div class="card component-card_9">
             <img src="{!! asset('uploads') !!}/{{ $image->image }}" class="card-img-top" alt="widget-card-2">
             <div class="card-body">
-{{--                <p class="meta-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>--}}
-{{--                <h5 class="card-title">{{ $titles->title }}</h5>--}}
+                <p class="meta-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
+{{--                <h5 class="card-title">{{ $image->titles->title }}</h5>--}}
                 <div class="meta-info">
 
                     <a href="{{ route('view-details',[$image->id]) }}" title="Edit">
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-</div>
+
     @empty
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 layout-spacing">
         <div class="card component-card_9">
@@ -67,5 +67,6 @@
             </div>
         </div>
     </div>
-    @endforelse
+ @endforelse
+</div>
 @endsection

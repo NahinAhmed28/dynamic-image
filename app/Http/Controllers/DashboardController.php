@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $data = [
 
             'image' =>Image::findOrFail($id),
-            'titles' =>Title::where('imageID',$id),
+
         ];
 
         return view ('dashboard',$data);

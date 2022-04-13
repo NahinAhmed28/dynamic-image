@@ -29,7 +29,7 @@ class ImageController extends Controller
             Image::make($image)->fit(1920 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
         }
 
-        DB::table('images')->insert(
+        $image = DB::table('images')->insert(
             [
                 'image' =>  $image_rename,
                 'notes' => $request->notes,
@@ -43,8 +43,11 @@ class ImageController extends Controller
 //        ]);
 
         $title =  Title::create([
-           'title' => $request->title
+           'title' => $request->title,
+//           'imageID' => $image['id']
+
         ]);
+
 
         foreach($request->all() as  $key=>$r){
             if(str_contains($key ,'sub_title' )){
