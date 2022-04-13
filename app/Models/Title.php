@@ -13,7 +13,7 @@ class Title extends Model
     public function subtitles()
 
     {
-        return $this->hasMany(SubTitle::class, 'subTitleID', 'id');
+        return $this->hasMany(SubTitle::class, 'titleID', 'id');
     }
     public function images()
 

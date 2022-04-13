@@ -15,7 +15,7 @@ class SubTitle extends Model
     public function childtitles()
 
     {
-        return $this->hasMany(ChildTitle::class, 'childID', 'id');
+        return $this->hasMany(ChildTitle::class, 'subTitleID', 'id');
     }
 
     public function title()

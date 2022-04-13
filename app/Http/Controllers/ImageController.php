@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ChildTitle;
 use App\Models\SubTitle;
 use App\Models\Title;
-//use App\Models\Image;
-use Intervention\Image\Facades\Image;
+use App\Models\Image;
+use Intervention\Image\Facades\Image as Intervention;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,25 +26,19 @@ class ImageController extends Controller
             $image = $request->file('image');
             $image_rename = rand().'.'.$image->getClientOriginalExtension();
             $newLocation = public_path('/uploads/'.$image_rename);
-            Image::make($image)->fit(1920 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
+            Intervention::make($image)->fit(1920 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
         }
 
-        $image = DB::table('images')->insert(
-            [
-                'image' =>  $image_rename,
-                'notes' => $request->notes,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
 
-//        $image =  Image::create([
-//            'image' =>  $image_rename,
-//            'notes' => $request->notes,
-//        ]);
+
+        $image =  Image::create([
+            'image' =>  $image_rename,
+            'notes' => $request->notes,
+        ]);
 
         $title =  Title::create([
            'title' => $request->title,
-//           'imageID' => $image['id']
+           'imageID' => $image['id']
 
         ]);
 
@@ -56,7 +50,7 @@ class ImageController extends Controller
                     'subtitle' => $r[0],
                     'titleID' => $title['id']
                 ]);
-                $actPlace= ++$place[2];
+                $actPlace = ++$place[2];
                 foreach ($request->all() as $key2=>$rr){
                     $var = 'child_title_'.$actPlace;
 

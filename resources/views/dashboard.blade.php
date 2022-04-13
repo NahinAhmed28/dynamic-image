@@ -5,7 +5,7 @@
 @section('content')
     @include('components.project')
     @php
-        $images = DB::table('images')->get();
+        $images = \App\Models\Image::all();
     @endphp
     <style media="screen">
         .btn-info {
@@ -85,20 +85,19 @@
                                                         <ul class="tree">
 
                                                             <li>
-                                                                <span> Image Title </span>
+                                                                <span> {{ $image->titles->title }} </span>
                                                                 <ul>
+                                                                    @foreach( $image->titles->subtitles as $sub)
                                                                     <li>
-                                                                        <span> sub title 1</span>
+                                                                        <span>{{$sub->subtitle }} </span>
+
                                                                         <ul>
-                                                                            <li> <span> child title 1 1</span></li>
+                                                                            @foreach($sub->childtitles as $child)
+                                                                            <li> <span> {{$child->childTitle}}</span></li>
+                                                                            @endforeach
                                                                         </ul>
                                                                     </li>
-                                                                    <li>
-                                                                        <span>sub title 2</span>
-                                                                        <ul>
-                                                                            <li> <span> child title 2 1</span></li>
-                                                                        </ul>
-                                                                    </li>
+                                                                    @endforeach
                                                                 </ul>
                                                             </li>
                                                         </ul>
