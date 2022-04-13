@@ -121,7 +121,6 @@
                             <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
                             <a href="{!! route('image.delete', $image->id) !!}" class="btn btn-danger">Delete</a>
                         </div>
-
                     </div>
                 </div>
             </div>

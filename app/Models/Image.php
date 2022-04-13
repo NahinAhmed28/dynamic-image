@@ -16,6 +16,4 @@ class Image extends Model
     {
         return $this->hasOne(Title::class , 'imageID', 'id');
     }
-
-
 }
