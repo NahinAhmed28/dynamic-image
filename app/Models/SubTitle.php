@@ -21,7 +21,7 @@ class SubTitle extends Model
     public function title()
 
     {
-        return $this->belongsTo(Image::class, 'titleID', 'id');
+        return $this->belongsTo(Title::class, 'titleID', 'id');
     }
 
 

@@ -11,9 +11,12 @@ class Image extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'images';
 
-    public function titles()
+    public function services()
     {
-        return $this->hasOne(Title::class , 'imageID', 'id');
+        return $this->hasMany(Service::class , 'imageID', 'id');
     }
+
+
 }

@@ -26,6 +26,23 @@
                         <div class="custom-file-container__image-preview"></div>
                     </div>
                     <hr>
+                    <div class="form-row m-3">
+                        <div class="col-md-9 mb-3">
+                            <label for="">Services :</label> <br>
+                            <input type="checkbox" value="personal" name="serviceTitle[]"  class="form-check-input px-3">personal<br>
+                            <input type="checkbox" value="company" name="serviceTitle[]"  class="form-check-input px-3">company<br>
+                            {{--                    <div>--}}
+                            {{--                        <input type="checkbox" id="services" name="services[]" value="personal">--}}
+                            {{--                        <label for="services">personal</label>--}}
+                            {{--                    </div>--}}
+
+                            {{--                    <div>--}}
+                            {{--                        <input type="checkbox" id="services" name="services[]" value="company">--}}
+                            {{--                        <label for="services">company</label>--}}
+                            {{--                    </div>--}}
+                        </div>
+                    </div>
+
                     <label for="">Main Title :</label>
                     <input type="text" class="form-control mb-3" name="title">
                     <div class="row">

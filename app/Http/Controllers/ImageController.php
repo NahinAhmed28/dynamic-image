@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChildTitle;
+use App\Models\Service;
 use App\Models\SubTitle;
 use App\Models\Title;
 use App\Models\Image;
@@ -24,22 +25,38 @@ class ImageController extends Controller
 
         if (!empty($request->image)) {
             $image = $request->file('image');
-            $image_rename = rand().'.'.$image->getClientOriginalExtension();
-            $newLocation = public_path('/uploads/'.$image_rename);
+            $image_rename = rand() . '.' . $image->getClientOriginalExtension();
+            $newLocation = public_path('/uploads/' . $image_rename);
 //            Intervention::make($image)->fit(1080 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
-            Intervention::make($image)->orientate()->resize(1200,900)->save($newLocation);
+            Intervention::make($image)->orientate()->resize(1200, 900)->save($newLocation);
         }
 
 
-
-        $image =  Image::create([
-            'image' =>  $image_rename,
+        $image = Image::create([
+            'image' => $image_rename,
             'notes' => $request->notes,
         ]);
 
+
+//        $service = Service::create([
+//            'services_name' => $request->services[''],
+////            'services_name' => implode(",",$request->input('services',[])),
+//            'imageID' => $image['id']
+//        ]);
+
+
+
+            $service = Service::create([
+                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
+//                'serviceTitle' =>  array_keys(array_filter( $request->input('serviceTitle', []))),
+                'imageID' => $image['id']
+
+            ]);
+
+
         $title =  Title::create([
            'title' => $request->title,
-           'imageID' => $image['id']
+           'serviceID' => $service['id']
 
         ]);
 
@@ -55,7 +72,7 @@ class ImageController extends Controller
                 foreach ($request->all() as $key2=>$rr){
                     $var = 'child_title_'.$actPlace;
 
-                    if($key2 == $var){
+                    if(str_contains($key2 , $var)){
 
                         foreach($rr as $child){
                             $child_title = ChildTitle::create([
@@ -108,7 +125,7 @@ class ImageController extends Controller
 //      return back();
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request, $id)
     {
       $file = DB::table('images')->where('id', $request->id)->value('image');
       File::delete(public_path('/uploads/'.$file));

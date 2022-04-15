@@ -80,25 +80,44 @@
                                             <div class="">
 
                                                 <div class="card-body">
+
                                                     <figure>
-                                                        <figcaption>Title </figcaption>
+                                                        <figcaption>Service:  </figcaption>
+
                                                         <ul class="tree">
 
                                                             <li>
-                                                                <span> {{ $image->titles->title }} </span>
-                                                                <ul>
-                                                                    @foreach( $image->titles->subtitles as $sub)
-                                                                    <li>
-                                                                        <span>{{$sub->subtitle }} </span>
+{{--                                                                <span> {{ $image->services->services }}  </span>--}}
+                                                                <span>
+                                                                    @isset($image->services)
+                                                                        @foreach($image->services as $service)
+                                                                            <ul>
+                                                                                @isset($service->serviceTitle)
+                                                                                <li>{{$service->serviceTitle}}</li>
+                                                                                @endisset
+                                                                            </ul>
+                                                                        @endforeach
+                                                                    @endisset
+                                                                </span>
+{{--                                                                <ul>--}}
+{{--                                                                    @isset($image->services->titles->subtitles)--}}
+{{--                                                                    @foreach( $image->services->titles->subtitles as $sub)--}}
 
-                                                                        <ul>
-                                                                            @foreach($sub->childtitles as $child)
-                                                                            <li> <span> {{$child->childTitle}}</span></li>
-                                                                            @endforeach
-                                                                        </ul>
-                                                                    </li>
-                                                                    @endforeach
-                                                                </ul>
+{{--                                                                    <li>--}}
+{{--                                                                        <span>  {{$sub->subtitle }} </span>--}}
+
+{{--                                                                        <ul>--}}
+{{--                                                                            @isset($sub->childtitles)--}}
+{{--                                                                            @foreach($sub->childtitles as $child)--}}
+{{--                                                                            <li> <span> {{$child->childTitle}}</span></li>--}}
+{{--                                                                            @endforeach--}}
+{{--                                                                            @endisset--}}
+{{--                                                                        </ul>--}}
+{{--                                                                    </li>--}}
+
+{{--                                                                    @endforeach--}}
+{{--                                                                    @endisset--}}
+{{--                                                                </ul>--}}
                                                             </li>
                                                         </ul>
                                                     </figure>

@@ -15,9 +15,9 @@ class Title extends Model
     {
         return $this->hasMany(SubTitle::class, 'titleID', 'id');
     }
-    public function images()
+    public function service()
 
     {
-        return $this->belongsTo(Image::class, 'imageID', 'id');
+        return $this->belongsTo(Service::class, 'serviceID', 'id');
     }
 }
