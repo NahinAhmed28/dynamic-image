@@ -88,17 +88,7 @@
 
                                                             <li>
 {{--                                                                <span> {{ $image->services->services }}  </span>--}}
-                                                                <span>
-                                                                    @isset($image->services)
-                                                                        @foreach($image->services as $service)
-                                                                            <ul>
-                                                                                @isset($service->serviceTitle)
-                                                                                <li>{{$service->serviceTitle}}</li>
-                                                                                @endisset
-                                                                            </ul>
-                                                                        @endforeach
-                                                                    @endisset
-                                                                </span>
+
 {{--                                                                <ul>--}}
 {{--                                                                    @isset($image->services->titles->subtitles)--}}
 {{--                                                                    @foreach( $image->services->titles->subtitles as $sub)--}}

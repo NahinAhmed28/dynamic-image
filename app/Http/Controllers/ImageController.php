@@ -38,20 +38,21 @@ class ImageController extends Controller
         ]);
 
 
-//        $service = Service::create([
-//            'services_name' => $request->services[''],
-////            'services_name' => implode(",",$request->input('services',[])),
-//            'imageID' => $image['id']
-//        ]);
+//            $service = Service::create([
+//                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
+//                'imageID' => $image['id']
+//
+//            ]);
 
 
-
-            $service = Service::create([
-                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
-//                'serviceTitle' =>  array_keys(array_filter( $request->input('serviceTitle', []))),
-                'imageID' => $image['id']
-
-            ]);
+        foreach ($request->all() as  $key0=>$rrr){
+            if(str_contains($key0 ,'serviceTitle' )){
+                $service = Service::create([
+                    'serviceTitle' =>$request->serviceTitle['value'],
+                    'imageID' => $image['id']
+                    ]);
+            }
+        }
 
 
         $title =  Title::create([
@@ -100,29 +101,6 @@ class ImageController extends Controller
 //          'notes' => 'required',
 //      ]);
 
-//      $a_title_z = json_encode($request->a_title_z);
-//      $b_title_z = json_encode($request->b_title_z);
-//      $b_title_x = json_encode($request->b_title_x);
-//      $a_title_x = json_encode($request->a_title_x);
-
-
-
-
-//      DB::table('images')->insert([
-//        'image' => $image_rename,
-//        'title' => $request->title,
-////        'desc' => $request->desc,
-//        'sub_title_a' => $request->sub_title_a,
-//        'a_title_x' => $a_title_x,
-//        'a_title_z' => $a_title_z,
-//        'sub_title_b' => $request->sub_title_b,
-//        'b_title_x' => $b_title_x,
-//        'b_title_z' => $b_title_z,
-//        'notes' => $request->notes,
-//        'created_at' => now(),
-//      ]);
-//
-//      return back();
     }
 
     public function delete(Request $request, $id)
