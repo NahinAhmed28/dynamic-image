@@ -38,21 +38,21 @@ class ImageController extends Controller
         ]);
 
 
-//            $service = Service::create([
-//                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
-//                'imageID' => $image['id']
+            $service = Service::create([
+                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
+                'imageID' => $image['id']
+
+            ]);
+
+
+//        foreach ($request->all('serviceTitle') as  $key0=>$rrr){
 //
-//            ]);
-
-
-        foreach ($request->all() as  $key0=>$rrr){
-            if(str_contains($key0 ,'serviceTitle' )){
-                $service = Service::create([
-                    'serviceTitle' =>$request->serviceTitle['value'],
-                    'imageID' => $image['id']
-                    ]);
-            }
-        }
+//                $service = Service::create([
+//                    'serviceTitle' =>$request->serviceTitle,
+//                    'imageID' => $image['id']
+//                    ]);
+//
+//        }
 
 
         $title =  Title::create([
