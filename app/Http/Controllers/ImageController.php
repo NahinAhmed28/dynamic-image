@@ -28,7 +28,7 @@ class ImageController extends Controller
             $image_rename = rand() . '.' . $image->getClientOriginalExtension();
             $newLocation = public_path('/uploads/' . $image_rename);
 //            Intervention::make($image)->fit(1080 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
-            Intervention::make($image)->orientate()->resize(1200, 900)->save($newLocation);
+            Intervention::make($image)->orientate()->resize(480, 480)->save($newLocation);
         }
 
 
@@ -38,21 +38,26 @@ class ImageController extends Controller
         ]);
 
 
-            $service = Service::create([
-                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
-                'imageID' => $image['id']
-
-            ]);
-
-
-//        foreach ($request->all('serviceTitle') as  $key0=>$rrr){
+//            $service = Service::create([
+//                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
+//                'imageID' => $image['id']
 //
-//                $service = Service::create([
-//                    'serviceTitle' =>$request->serviceTitle,
-//                    'imageID' => $image['id']
-//                    ]);
-//
-//        }
+//            ]);
+
+
+        foreach ($request->all() as  $key0=>$rrr){
+
+            if(str_contains($key0 ,'serviceTitle' )){
+                $place = explode('_' , $key0);
+
+                $service = Service::create([
+                    'serviceTitle' =>$rrr[0],
+                    'imageID' => $image['id']
+                ]);
+            }
+
+
+        }
 
 
         $title =  Title::create([

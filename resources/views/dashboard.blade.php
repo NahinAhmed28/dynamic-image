@@ -38,12 +38,12 @@
     @endif
     <div class="row layout-top-spacing">
         @forelse ($images as $image)
-            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12" style="margin-left: 20px">
-                <div class="card component-card_9">
+            <div class=" col-sm-4 col-12 " >
+                <div class="card component-card_9 " >
                     <img src="{!! asset('uploads') !!}/{{ $image->image }}" class="card-img-top" alt="widget-card-2">
                     <div class="card-body">
                         <p class="meta-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
-{{--                        <h5 class="card-title">{{ $image->title }}</h5>--}}
+                        <h5 class="card-title">{{ $image->notes }}</h5>
                         <div class="meta-info">
                             <button type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#viewDetails{{ $loop->index }}" name="button">View Details</button>
                         </div>
