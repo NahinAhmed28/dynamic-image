@@ -52,7 +52,9 @@
             </div>
 
 
-            <div id="viewDetails{{ $loop->index }}" class="modal animated zoomInUp custo-zoomInUp" role="dialog">
+
+
+                <div id="viewDetails{{ $loop->index }}" class="modal animated zoomInUp custo-zoomInUp" role="dialog">
                 <div class="modal-dialog modal-lg">
                     <!-- Modal content-->
                     <div class="modal-content">
@@ -133,6 +135,7 @@
                     </div>
                 </div>
             </div>
+
         @empty
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 layout-spacing">
                 <div class="card component-card_9">
@@ -149,5 +152,10 @@
 
     </div>
 @endsection
+@push('scripts')
+    <script type="text/javascript" >
 
+
+    </script>
+@endpush
 

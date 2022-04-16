@@ -149,6 +149,8 @@
     <script src="{!! asset('font') !!}/assets/js/components/ui-accordions.js"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 
+    @stack('scripts')
+
 </body>
 
 <!-- Mirrored from designreset.com/cork/ltr/demo11/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Feb 2022 20:00:05 GMT -->

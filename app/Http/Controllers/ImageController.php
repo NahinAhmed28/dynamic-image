@@ -21,7 +21,7 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
+        dd($request->all());
 
         if (!empty($request->image)) {
             $image = $request->file('image');
@@ -31,19 +31,16 @@ class ImageController extends Controller
             Intervention::make($image)->orientate()->resize(480, 480)->save($newLocation);
         }
 
-
         $image = Image::create([
             'image' => $image_rename,
             'notes' => $request->notes,
         ]);
-
 
 //            $service = Service::create([
 //                'serviceTitle' => implode(",", $request->input('serviceTitle', [])),
 //                'imageID' => $image['id']
 //
 //            ]);
-
 
         foreach ($request->all() as  $key0=>$rrr){
 
@@ -55,17 +52,13 @@ class ImageController extends Controller
                     'imageID' => $image['id']
                 ]);
             }
-
-
         }
-
 
         $title =  Title::create([
            'title' => $request->title,
            'serviceID' => $service['id']
 
         ]);
-
 
         foreach($request->all() as  $key=>$r){
             if(str_contains($key ,'sub_title' )){
