@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('serviceTitle')->nullable();
+            $table->string('serviceName')->nullable();
             $table->unsignedBigInteger('imageID')->nullable();
 
             // foreign keys

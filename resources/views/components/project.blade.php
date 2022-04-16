@@ -33,10 +33,10 @@
                             <label for="">Services :</label> <br>
                             <div class="row ml-2">
                                 <div class="col-md-6">
-                                    <input type="checkbox" id="check1" value="personal" name="serviceTitle[]"  class="form-check-input px-3 font-weight-bold"> <strong>PERSONAL</strong><br>
+                                    <input type="checkbox" id="check1" value="personal" name="serviceName[]"  class="form-check-input px-3 font-weight-bold"> <strong>PERSONAL</strong><br>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="checkbox" id="check2" value="company" name="serviceTitle[]"  class="form-check-input px-3 font-weight-bold"> <strong>COMPANY</strong><br>
+                                    <input type="checkbox" id="check2" value="company" name="serviceName[]"  class="form-check-input px-3 font-weight-bold"> <strong>COMPANY</strong><br>
                                 </div>
                             </div>
 
