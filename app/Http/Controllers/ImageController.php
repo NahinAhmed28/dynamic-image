@@ -21,7 +21,10 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
+
+
+
 
         if (!empty($request->image)) {
             $image = $request->file('image');
@@ -33,7 +36,6 @@ class ImageController extends Controller
 
         $image = Image::create([
             'image' => $image_rename,
-            'notes' => $request->notes,
         ]);
 
 //            $service = Service::create([
@@ -86,16 +88,8 @@ class ImageController extends Controller
 
         return back()->with('success', 'Your images has been added!');
 
-
 //      $validated = $request->validate([
 //          'image' => 'required',
-//          'title' => 'required',
-//          'sub_title_a' => 'required',
-//          'sub_title_b' => 'required',
-//          'a_title_x' => 'required',
-//          'a_title_z' => 'required',
-//          'b_title_x' => 'required',
-//          'b_title_z' => 'required',
 //          'notes' => 'required',
 //      ]);
 

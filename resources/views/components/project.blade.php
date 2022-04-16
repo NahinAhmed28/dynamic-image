@@ -33,10 +33,10 @@
                             <label for="">Services :</label> <br>
                             <div class="row ml-2">
                                 <div class="col-md-6">
-                                    <input type="checkbox" id="check1" value="personal" name="serviceTitle[]"  class="form-check-input px-3">personal<br>
+                                    <input type="checkbox" id="check1" value="personal" name="serviceTitle[]"  class="form-check-input px-3 font-weight-bold"> <strong>PERSONAL</strong><br>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="checkbox" id="check2" value="company" name="serviceTitle[]"  class="form-check-input px-3">company<br>
+                                    <input type="checkbox" id="check2" value="company" name="serviceTitle[]"  class="form-check-input px-3 font-weight-bold"> <strong>COMPANY</strong><br>
                                 </div>
                             </div>
 
@@ -92,6 +92,9 @@
                                                 $(this).closest('#personal_sub_title_row').append(html);
                                             });
                                         </script>
+                                        <br>
+                                        <label for="" style="margin-top:10px">Personal Notes:</label>
+                                        <textarea name="company_notes" class="form-control mb-3 " rows="8" cols="80"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -147,6 +150,9 @@
                                                 $(this).closest('#company_sub_title_row').append(html);
                                             });
                                         </script>
+                                        <br>
+                                        <label for="" style="margin-top:10px">Company Notes:</label>
+                                        <textarea name="company_notes" class="form-control mb-3 " rows="8" cols="80"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -154,10 +160,8 @@
                     </div>
 
                 </div>
-                <div class="col-md-12 mt-5">
-                    <label for="">Notes:</label>
-                    <textarea name="notes" class="form-control mb-3 " rows="8" cols="80"></textarea>
-                </div>
+
+
 
                 <div class="modal-footer md-button">
                     <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
