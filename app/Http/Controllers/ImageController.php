@@ -67,12 +67,6 @@ class ImageController extends Controller
 
 
 
-//        $title =  Title::create([
-//           'title' => $request->title,
-//           'serviceID' => $service['id']
-//
-//        ]);
-//
 //        foreach($request->all() as  $key=>$r){
 //            if(str_contains($key ,'sub_title' )){
 //                $place = explode('_' , $key);
