@@ -44,7 +44,7 @@
                         <div class="col-md-6">
                             <div id="checkBox1" style="display: none">
                                 <label for="">personal_Main Title :</label>
-                                <input type="text" class="form-control mb-3" name="personal_title">
+                                <input type="text" class="form-control mb-3" name="title[]">
 
                                 <div class="row">
                                     <div class="col-md-12">
@@ -94,7 +94,7 @@
                                         </script>
                                         <br>
                                         <label for="" style="margin-top:10px">Personal Notes:</label>
-                                        <textarea name="company_notes" class="form-control mb-3 " rows="8" cols="80"></textarea>
+                                        <textarea name="notes[]" class="form-control mb-3 " rows="8" cols="80"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                         <div class="col-md-6">
                             <div id="checkBox2" style="display: none">
                                 <label for="">company_Main Title :</label>
-                                <input type="text" class="form-control mb-3" name="company_title">
+                                <input type="text" class="form-control mb-3" name="title[]">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="company_sub_title_new"></div>
@@ -152,7 +152,7 @@
                                         </script>
                                         <br>
                                         <label for="" style="margin-top:10px">Company Notes:</label>
-                                        <textarea name="company_notes" class="form-control mb-3 " rows="8" cols="80"></textarea>
+                                        <textarea name="notes[]" class="form-control mb-3 " rows="8" cols="80"></textarea>
                                     </div>
                                 </div>
                             </div>

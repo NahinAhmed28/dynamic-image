@@ -47,31 +47,18 @@ class ImageController extends Controller
             if(str_contains($key0 ,'serviceName' )){
 //                $place = explode('_' , $key0);
 
-                foreach ($rrr as $item){
+                foreach ($rrr as $key1 => $item){
                     $service = Service::create([
                         'serviceName' =>$item,
                         'imageID' => $image['id']
                     ]);
-                    foreach ($request->all() as  $key1=>$rrrr)
-                    {
-                        if(str_contains($key1 ,'personal_title' )){
-                            $title =  Title::create([
-                                'title' => $request->personal_title,
-                                'notes' => $request->personal_notes,
-                                'serviceID' => $service['id']
 
-                            ]);
-                        }
-                        if(str_contains($key1 ,'company_title' )){
-                            $title =  Title::create([
-                                'title' => $request->company_title,
-                                'notes' => $request->company_notes,
-                                'serviceID' => $service['id']
+                    $title =  Title::create([
+                            'title' => $request->title[$key1],
+                            'notes' => $request->notes[$key1],
+                            'serviceID' => $service['id']
+                                ]);
 
-                            ]);
-                        }
-
-                    }
                 }
 
 
