@@ -29,7 +29,7 @@ class ImageController extends Controller
             $image_rename = rand() . '.' . $image->getClientOriginalExtension();
             $newLocation = public_path('/uploads/' . $image_rename);
 //            Intervention::make($image)->fit(1080 ,1080 ,function ($constraint) { $constraint->upsize(); $constraint->upsize();})->save($newLocation);
-            Intervention::make($image)->orientate()->resize(480, 480)->save($newLocation);
+            Intervention::make($image)->orientate()->resize(900, 700)->save($newLocation);
         }
 
         $image = Image::create([
@@ -58,9 +58,7 @@ class ImageController extends Controller
                             'notes' => $request->notes[$key1],
                             'serviceID' => $service['id']
                                 ]);
-
                 }
-
 
             }
         }
