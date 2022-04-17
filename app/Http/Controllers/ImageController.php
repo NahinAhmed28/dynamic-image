@@ -57,6 +57,7 @@ class ImageController extends Controller
                         if(str_contains($key1 ,'personal_title' )){
                             $title =  Title::create([
                                 'title' => $request->personal_title,
+                                'notes' => $request->personal_notes,
                                 'serviceID' => $service['id']
 
                             ]);
@@ -64,6 +65,7 @@ class ImageController extends Controller
                         if(str_contains($key1 ,'company_title' )){
                             $title =  Title::create([
                                 'title' => $request->company_title,
+                                'notes' => $request->company_notes,
                                 'serviceID' => $service['id']
 
                             ]);

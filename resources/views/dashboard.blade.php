@@ -121,7 +121,7 @@
                                 <div class="container mt-5">
                                     <div class="row">
                                         <p>
-                                            {!! $image->notes !!}
+{{--                                            {!! $image->notes !!}--}}
                                         </p>
 
                                     </div>
