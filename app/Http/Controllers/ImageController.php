@@ -52,7 +52,7 @@ class ImageController extends Controller
                         'serviceName' =>$item,
                         'imageID' => $image['id']
                     ]);
-                    foreach ($request->all() as  $key1=>$rrr)
+                    foreach ($request->all() as  $key1=>$rrrr)
                     {
                         if(str_contains($key1 ,'personal_title' )){
                             $title =  Title::create([
@@ -71,6 +71,7 @@ class ImageController extends Controller
 
                     }
                 }
+
 
             }
         }
