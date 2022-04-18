@@ -71,18 +71,18 @@ class ImageController extends Controller
                     'titleID' => $title['id']-1
                 ]);
                 $actPlace = ++$place[2];
-                foreach ($request->all() as $key3 => $rr) {
+                foreach ($request->all() as $key3 => $rr1) {
 //                    $var = 'personal_child_title_' . $actPlace;
 
                     if (str_contains($key3, 'personal_child_title')) {
 
-//                        foreach ($rr as $child) {
+                        foreach ($rr1 as $child) {
 
                             $child_title = ChildTitle::create([
-                                'childTitle' => $rr[0],
+                                'childTitle' => $rr1[0],
                                 'subTitleID' => $sub_title['id']
                             ]);
-//                        }
+                        }
                     }
                 }
             }
@@ -93,18 +93,18 @@ class ImageController extends Controller
                     'titleID' => $title['id']
                 ]);
                 $actPlace = ++$place[2];
-                foreach ($request->all() as $key3 => $rr) {
+                foreach ($request->all() as $key4 => $rr2) {
 //                    $var = 'company_child_title_' . $actPlace;
 
-                    if (str_contains($key3, 'company_child_title')) {
+                    if (str_contains($key4, 'company_child_title')) {
 
-//                        foreach ($rr as $child) {
+                        foreach ($rr2 as $child) {
 
                             $child_title = ChildTitle::create([
-                                'childTitle' => $rr[0],
+                                'childTitle' => $rr2[0],
                                 'subTitleID' => $sub_title['id']
                             ]);
-//                        }
+                        }
                     }
                 }
             }
