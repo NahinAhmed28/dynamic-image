@@ -78,17 +78,54 @@
                                         </div>
                                         <div class="">
                                                 {{--<h4>{{ $image->title }}</h4>--}}
-                                            <p class="meta-time-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
+
                                             <div class="">
 
-                                                <div class="card-body">
 
-                                                    <figure>
-                                                        <figcaption>Service:  </figcaption>
 
-                                                        <ul class="tree">
+                                                <div class="timeline-simple">
 
-                                                            <li>
+
+                                                    <div class="timeline-list">
+                                                        <p class="meta-time-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
+
+                                                        @foreach($image->services as $services)
+                                                        <div class="timeline-post-content">
+                                                            <div class="user-profile">
+                                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC4rqDPYVkaiMjB6NYIrLlppfONKyFfRovedv6fLICm_hLfQ43JFMcj56EDQuSW6FUze8&usqp=CAU" class="">
+                                                            </div>
+                                                            <div class="">
+                                                                <h4>{{$services->title->title}}</h4>
+                                                                <p class="meta-time-date">{{$services->serviceName}}</p>
+                                                                @foreach($services->title->subtitles as $subtitles)
+                                                                <div class="">
+                                                                    <svg> ... </svg>
+                                                                    <h6 class="">{{$subtitles->subtitle}}</h6>
+                                                                    @foreach($subtitles->childtitles as $childtitle)
+                                                                        <ul>
+                                                                            <li>
+                                                                    <p class="post-text"> {{$childtitle->childTitle}}</p>
+{{--                                                                    <div class="post-contributers">--}}
+{{--                                                                        <img src="#" class="">--}}
+{{--                                                                        child class--}}
+{{--                                                                    </div>--}}
+                                                                            </li>
+                                                                        </ul>
+                                                                    @endforeach
+                                                                </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+
+{{--                                                    <figure>--}}
+{{--                                                        <figcaption>Service:  </figcaption>--}}
+
+{{--                                                        <ul class="tree">--}}
+
+{{--                                                            <li>--}}
 {{--                                                                <span> {{ $image->services->services }}  </span>--}}
 
 {{--                                                                <ul>--}}
@@ -110,10 +147,11 @@
 {{--                                                                    @endforeach--}}
 {{--                                                                    @endisset--}}
 {{--                                                                </ul>--}}
-                                                            </li>
-                                                        </ul>
-                                                    </figure>
-                                                </div>
+{{--                                                            </li>--}}
+{{--                                                        </ul>--}}
+{{--                                                    </figure>--}}
+
+
                                             </div>
                                         </div>
                                     </div>
