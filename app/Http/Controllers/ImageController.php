@@ -47,49 +47,76 @@ class ImageController extends Controller
             if(str_contains($key0 ,'serviceName' )){
 //                $place = explode('_' , $key0);
 
-                foreach ($rrr as $key1 => $item){
+                foreach ($rrr as $key1 => $item) {
                     $service = Service::create([
-                        'serviceName' =>$item,
+                        'serviceName' => $item,
                         'imageID' => $image['id']
                     ]);
 
-                    $title =  Title::create([
-                            'title' => $request->title[$key1],
-                            'notes' => $request->notes[$key1],
-                            'serviceID' => $service['id']
-                                ]);
-                }
+                    $title = Title::create([
+                        'title' => $request->title[$key1],
+                        'notes' => $request->notes[$key1],
+                        'serviceID' => $service['id']
+                    ]);
 
+                }
             }
+        }
+
+        foreach ($request->all() as $key2 => $r) {
+            if (str_contains($key2, 'personal_sub_title')) {
+                $place = explode('_', $key2);
+                $sub_title = SubTitle::create([
+                    'subtitle' => $r[0],
+                    'titleID' => $title['id']-1
+                ]);
+                $actPlace = ++$place[2];
+                foreach ($request->all() as $key3 => $rr) {
+//                    $var = 'personal_child_title_' . $actPlace;
+
+                    if (str_contains($key3, 'personal_child_title')) {
+
+//                        foreach ($rr as $child) {
+
+                            $child_title = ChildTitle::create([
+                                'childTitle' => $rr[0],
+                                'subTitleID' => $sub_title['id']
+                            ]);
+//                        }
+                    }
+                }
+            }
+            elseif (str_contains($key2, 'company_sub_title')) {
+                $place = explode('_', $key2);
+                $sub_title = SubTitle::create([
+                    'subtitle' => $r[0],
+                    'titleID' => $title['id']
+                ]);
+                $actPlace = ++$place[2];
+                foreach ($request->all() as $key3 => $rr) {
+//                    $var = 'company_child_title_' . $actPlace;
+
+                    if (str_contains($key3, 'company_child_title')) {
+
+//                        foreach ($rr as $child) {
+
+                            $child_title = ChildTitle::create([
+                                'childTitle' => $rr[0],
+                                'subTitleID' => $sub_title['id']
+                            ]);
+//                        }
+                    }
+                }
+            }
+
+
         }
 
 
 
 
 
-//        foreach($request->all() as  $key=>$r){
-//            if(str_contains($key ,'sub_title' )){
-//                $place = explode('_' , $key);
-//                $sub_title = SubTitle::create([
-//                    'subtitle' => $r[0],
-//                    'titleID' => $title['id']
-//                ]);
-//                $actPlace = ++$place[2];
-//                foreach ($request->all() as $key2=>$rr){
-//                    $var = 'child_title_'.$actPlace;
-//
-//                    if(str_contains($key2 , $var)){
-//
-//                        foreach($rr as $child){
-//                            $child_title = ChildTitle::create([
-//                                'childTitle' => $child,
-//                                'subTitleID' => $sub_title['id']
-//                            ]);
-//                        }
-//                    }
-//                }
-//            }
-//        }
+
 
         return back()->with('success', 'Your images has been added!');
 
