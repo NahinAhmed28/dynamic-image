@@ -104,7 +104,7 @@
                                                                     @foreach($subtitles->childtitles as $childtitle)
                                                                         <ul>
                                                                             <li>
-                                                                    <p class="post-text"> {{$childtitle->childTitle}}</p>
+                                                                    {{$childtitle->childTitle}}
 {{--                                                                    <div class="post-contributers">--}}
 {{--                                                                        <img src="#" class="">--}}
 {{--                                                                        child class--}}

@@ -68,13 +68,13 @@ class ImageController extends Controller
                 $place = explode('_', $key2);
 
                 if ($count!=1){
-                    $sub_title = SubTitle::create([
+                    $personal_sub_title = SubTitle::create([
                         'subtitle' => $r[0],
                         'titleID' => $title['id']-1
                     ]);
                 }
                 else{
-                    $sub_title = SubTitle::create([
+                    $personal_sub_title = SubTitle::create([
                         'subtitle' => $r[0],
                         'titleID' => $title['id']
                     ]);
@@ -82,39 +82,44 @@ class ImageController extends Controller
 
 
 
-                $actPlace = ++$place[2];
+                $actPlace = ++$place[3];
                 foreach ($request->all() as $key3 => $rr1) {
-//                    $var = 'personal_child_title_' . $actPlace;
+                    $var1 = 'personal_child_title_' . $actPlace;
 
-                    if (str_contains($key3, 'personal_child_title')) {
+                    if (str_contains($key3, $var1)) {
 
                         foreach ($rr1 as $child) {
 
                             $child_title = ChildTitle::create([
-                                'childTitle' => $rr1[0],
-                                'subTitleID' => $sub_title['id']
+                                'childTitle' => $child,
+                                'subTitleID' => $personal_sub_title['id']
                             ]);
                         }
                     }
                 }
             }
+
+
+
+
+
             elseif (str_contains($key2, 'company_sub_title')) {
                 $place = explode('_', $key2);
-                $sub_title = SubTitle::create([
+                $company_sub_title = SubTitle::create([
                     'subtitle' => $r[0],
                     'titleID' => $title['id']
                 ]);
-                $actPlace = ++$place[2];
+                $actPlace = ++$place[3];
                 foreach ($request->all() as $key4 => $rr2) {
-//                    $var = 'company_child_title_' . $actPlace;
+                    $var2 = 'company_child_title_' . $actPlace;
 
-                    if (str_contains($key4, 'company_child_title')) {
+                    if (str_contains($key4, $var2)) {
 
                         foreach ($rr2 as $child) {
 
                             $child_title = ChildTitle::create([
-                                'childTitle' => $rr2[0],
-                                'subTitleID' => $sub_title['id']
+                                'childTitle' => $child,
+                                'subTitleID' => $company_sub_title['id']
                             ]);
                         }
                     }
