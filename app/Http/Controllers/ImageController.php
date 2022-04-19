@@ -45,7 +45,7 @@ class ImageController extends Controller
         foreach ($request->all() as  $key0=>$rrr){
 
             if(str_contains($key0 ,'serviceName' )){
-//                $place = explode('_' , $key0);
+                $count = 0;
 
                 foreach ($rrr as $key1 => $item) {
                     $service = Service::create([
@@ -58,7 +58,7 @@ class ImageController extends Controller
                         'notes' => $request->notes[$key1],
                         'serviceID' => $service['id']
                     ]);
-
+                    $count++;
                 }
             }
         }
@@ -66,10 +66,22 @@ class ImageController extends Controller
         foreach ($request->all() as $key2 => $r) {
             if (str_contains($key2, 'personal_sub_title')) {
                 $place = explode('_', $key2);
-                $sub_title = SubTitle::create([
-                    'subtitle' => $r[0],
-                    'titleID' => $title['id']-1
-                ]);
+
+                if ($count!=1){
+                    $sub_title = SubTitle::create([
+                        'subtitle' => $r[0],
+                        'titleID' => $title['id']-1
+                    ]);
+                }
+                else{
+                    $sub_title = SubTitle::create([
+                        'subtitle' => $r[0],
+                        'titleID' => $title['id']
+                    ]);
+                }
+
+
+
                 $actPlace = ++$place[2];
                 foreach ($request->all() as $key3 => $rr1) {
 //                    $var = 'personal_child_title_' . $actPlace;
@@ -129,10 +141,10 @@ class ImageController extends Controller
 
     public function delete(Request $request, $id)
     {
-      $file = DB::table('images')->where('id', $request->id)->value('image');
+      $file = Image::where('id', $request->id)->value('image');
       File::delete(public_path('/uploads/'.$file));
 
-      DB::table('images')->where('id', $request->id)->delete();
+     Image::where('id', $request->id)->all()->delete();
       return back()->with('danger', 'Image has been deleted!');
     }
 }

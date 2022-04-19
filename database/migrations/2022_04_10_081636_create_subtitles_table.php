@@ -19,7 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('titleID')->nullable();
 
             // foreign keys
-            $table->foreign('titleID')->references('id')->on('titles');
+            $table->foreign('titleID')->references('id')->on('titles')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');;
 
             $table->timestamps();
         });

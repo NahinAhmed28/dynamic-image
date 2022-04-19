@@ -19,7 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('subTitleID')->nullable();
 
             // foreign keys
-            $table->foreign('subTitleID')->references('id')->on('subtitles');
+            $table->foreign('subTitleID')->references('id')->on('subtitles')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');;
             $table->timestamps();
         });
     }

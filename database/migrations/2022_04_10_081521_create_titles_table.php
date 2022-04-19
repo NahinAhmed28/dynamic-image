@@ -20,7 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('serviceID')->nullable();
 
             // foreign keys
-            $table->foreign('serviceID')->references('id')->on('services');
+            $table->foreign('serviceID')->references('id')->on('services')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');;
 
             $table->timestamps();
         });
