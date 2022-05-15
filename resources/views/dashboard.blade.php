@@ -95,7 +95,9 @@
                                                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC4rqDPYVkaiMjB6NYIrLlppfONKyFfRovedv6fLICm_hLfQ43JFMcj56EDQuSW6FUze8&usqp=CAU" class="">
                                                             </div>
                                                             <div class="">
+                                                                @isset($services->title->title)
                                                                 <h4>{{$services->title->title}}</h4>
+                                                                @endisset
                                                                 <p class="meta-time-date">{{$services->serviceName}}</p>
                                                                 @foreach($services->title->subtitles as $subtitles)
                                                                 <div class="">
