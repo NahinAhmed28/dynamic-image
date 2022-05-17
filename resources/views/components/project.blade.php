@@ -36,20 +36,20 @@
                                     <input type="checkbox" id="check1" value="personal" name="serviceName[]"  class="form-check-input px-3 font-weight-bold"> <strong>PERSONAL</strong><br>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="checkbox" id="check2" value="company" name="serviceName[]"  class="form-check-input px-3 font-weight-bold"> <strong>COMPANY</strong><br>
+                                    <input type="checkbox" id="check2" value="company" name="serviceName[]"  class="form-check-input px-3 font-weight-bold"> <strong>SERVICE</strong><br>
                                 </div>
                             </div>
 
                     <div class="row ml-2">
                         <div class="col-md-6">
                             <div id="checkBox1" style="display: none">
-                                <label for="">personal_Main Title :</label>
+                                <label for="">Personal Main Title :</label>
                                 <input type="text" class="form-control mb-3" name="title[]">
 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="personal_sub_title_new"></div>
-                                        <button id="personal_sub_title_add" type="button" class="btn btn-info">Add personal_Sub Title</button>
+                                        <button id="personal_sub_title_add" type="button" class="btn btn-info"> personal Sub Title</button>
                                         <script type="text/javascript">
                                             var personal_child_title = 0;
                                             var personal_sub_title = 0;
@@ -57,11 +57,11 @@
                                             $("#personal_sub_title_add").click(function() {
                                                 var html = '';
                                                 html += '<div id="personal_sub_title_row">';
-                                                html += '<lable for="">  personal_Sub Title: </lable>';
+                                                html += '<lable for="">  Personal Sub Title: </lable>';
                                                 html += '<div class="input-group mb-3">';
                                                 html += '<input type="text" name="personal_sub_title_'+personal_sub_title+'[]" class="form-control m-input"><br>';
                                                 html += '<div class="input-group-append">';
-                                                html += '<button id="add_personal_child_title" type="button" class="btn btn-info">Add Child</button>';
+                                                html += '<button id="add_personal_child_title" type="button" class="btn btn-info"> Child Title</button>';
                                                 html += '</div>';
                                                 html += '<div class="input-group-append">';
                                                 html += '<button id="remove_personal_sub_title" type="button" class="btn btn-danger">Remove</button>';
@@ -81,7 +81,7 @@
                                                 var html = '';
                                                 html += '<div id="personal_child_title_new"></div>';
                                                 html += '<div id="personal_sub_title_row">';
-                                                html += '<lable for=""> personal_Child Title: </lable>';
+                                                html += '<lable for=""> ADD Personal Child Title: </lable>';
                                                 html += '<div class="input-group mb-3">';
                                                 html += '<input type="text" name="personal_child_title_'+personal_sub_title+'[]" class="form-control m-input">';
                                                 html += '<div id="personal_child_title_new"></div>';
@@ -102,12 +102,12 @@
 
                         <div class="col-md-6">
                             <div id="checkBox2" style="display: none">
-                                <label for="">company_Main Title :</label>
+                                <label for="">Service Main Title :</label>
                                 <input type="text" class="form-control mb-3" name="title[]">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="company_sub_title_new"></div>
-                                        <button id="company_sub_title_add" type="button" class="btn btn-info">Add company_Sub Title</button>
+                                        <button id="company_sub_title_add" type="button" class="btn btn-info">Add Service Sub Title</button>
                                         <script type="text/javascript">
                                             var company_child_title = 0;
                                             var company_sub_title = 0;
@@ -115,11 +115,11 @@
                                             $("#company_sub_title_add").click(function() {
                                                 var html = '';
                                                 html += '<div id="company_sub_title_row">';
-                                                html += '<lable for=""> company_Sub Title: </lable>';
+                                                html += '<lable for=""> Service Sub Title: </lable>';
                                                 html += '<div class="input-group mb-3">';
                                                 html += '<input type="text" name="company_sub_title_'+company_sub_title+'[]" class="form-control m-input"><br>';
                                                 html += '<div class="input-group-append">';
-                                                html += '<button id="add_company_child_title" type="button" class="btn btn-info">company_Add Child</button>';
+                                                html += '<button id="add_company_child_title" type="button" class="btn btn-info">Child Title</button>';
                                                 html += '</div>';
                                                 html += '<div class="input-group-append">';
                                                 html += '<button id="remove_company_sub_title" type="button" class="btn btn-danger">Remove</button>';
@@ -139,7 +139,7 @@
                                                 var html = '';
                                                 html += '<div id="company_child_title_new"></div>';
                                                 html += '<div id="company_sub_title_row">';
-                                                html += '<lable for=""> company_Child Title: </lable>';
+                                                html += '<lable for=""> Service Child Title: </lable>';
                                                 html += '<div class="input-group mb-3">';
                                                 html += '<input type="text" name="company_child_title_'+company_sub_title+'[]" class="form-control m-input">';
                                                 html += '<div id="company_child_title_new"></div>';
@@ -151,7 +151,7 @@
                                             });
                                         </script>
                                         <br>
-                                        <label for="" style="margin-top:10px">Company Notes:</label>
+                                        <label for="" style="margin-top:10px">Service Notes:</label>
                                         <textarea name="notes[]" class="form-control mb-3 " rows="8" cols="80"></textarea>
                                     </div>
                                 </div>
