@@ -21,7 +21,7 @@ return new class extends Migration
             // foreign keys
             $table->foreign('titleID')->references('id')->on('titles')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');;
+                ->onUpdate('cascade');
 
             $table->timestamps();
         });

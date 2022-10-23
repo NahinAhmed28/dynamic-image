@@ -89,34 +89,63 @@
                                                     <div class="timeline-list">
                                                         <p class="meta-time-date">{{ \Carbon\Carbon::parse($image->created_at)->diffForHumans() }}</p>
 
-                                                        @foreach($image->services as $services)
-                                                        <div class="timeline-post-content">
-                                                            <div class="user-profile">
-                                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC4rqDPYVkaiMjB6NYIrLlppfONKyFfRovedv6fLICm_hLfQ43JFMcj56EDQuSW6FUze8&usqp=CAU" class="">
-                                                            </div>
-                                                            <div class="">
-                                                                <h4>{{$services->title->title}}</h4>
-                                                                <p class="meta-time-date">{{$services->serviceName}}</p>
-                                                                @foreach($services->title->subtitles as $subtitles)
-                                                                <div class="">
-                                                                    <svg> ... </svg>
-                                                                    <h6 class="">{{$subtitles->subtitle}}</h6>
-                                                                    @foreach($subtitles->childtitles as $childtitle)
-                                                                        <ul>
-                                                                            <li>
-                                                                    {{$childtitle->childTitle}}
-{{--                                                                    <div class="post-contributers">--}}
-{{--                                                                        <img src="#" class="">--}}
-{{--                                                                        child class--}}
-{{--                                                                    </div>--}}
-                                                                            </li>
-                                                                        </ul>
-                                                                    @endforeach
+                                                        @isset($image->services)
+                                                            @foreach($image->services as $services)
+                                                                <div class="timeline-post-content">
+                                                                    <div class="user-profile">
+                                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC4rqDPYVkaiMjB6NYIrLlppfONKyFfRovedv6fLICm_hLfQ43JFMcj56EDQuSW6FUze8&usqp=CAU" class="">
+                                                                    </div>
+                                                                    <div class="">
+                                                                        @isset($services->title->title)
+                                                                            <h4>{{$services->title->title}}</h4>
+                                                                        @endisset
+
+                                                                        @isset($services->title->title)
+                                                                            <p class="meta-time-date">{{$services->serviceName}}</p>
+                                                                        @endisset
+
+
+                                                                        @isset($services->title->subtitles)
+                                                                            @foreach($services->title->subtitles as $subtitles)
+                                                                                <div class="">
+                                                                                    <svg> ... </svg>
+                                                                                    @isset($subtitles->subtitle)
+                                                                                        <h6 class="">{{$subtitles->subtitle}}</h6>
+                                                                                    @endisset
+
+                                                                                    @isset($subtitles->childtitles)
+                                                                                        @foreach($subtitles->childtitles as $childtitle)
+                                                                                            <ul>
+
+                                                                                                <li>
+
+                                                                                                    {{$childtitle->childTitle}}
+
+                                                                                                    {{--                                                                    <div class="post-contributers">--}}
+                                                                                                    {{--                                                                        <img src="#" class="">--}}
+                                                                                                    {{--                                                                        child class--}}
+                                                                                                    {{--                                                                    </div>--}}
+                                                                                                </li>
+
+                                                                                            </ul>
+                                                                                        @endforeach
+                                                                                    @endisset
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endisset
+                                                                    </div>
                                                                 </div>
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
-                                                        @endforeach
+                                                                <div class="container mt-5">
+                                                                    <div class="row">
+                                                                        <p> @isset($services->title->notes)
+                                                                                <strong>NOTE:</strong> {{$services->title->notes}}
+                                                                            @endisset
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+
+                                                            @endforeach
+                                                        @endisset
                                                     </div>
                                                 </div>
 
@@ -156,14 +185,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="container mt-5">
-                                    <div class="row">
-                                        <p>
-                                            {{$image->services->title->notes}}
-                                        </p>
 
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="modal-footer md-button">

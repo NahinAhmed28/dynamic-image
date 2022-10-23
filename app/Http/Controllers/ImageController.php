@@ -146,10 +146,13 @@ class ImageController extends Controller
 
     public function delete(Request $request, $id)
     {
-      $file = Image::where('id', $request->id)->value('image');
-      File::delete(public_path('/uploads/'.$file));
+        $file = Image::where('id', $request->id)->value('image');
+        \Illuminate\Support\Facades\File::delete(public_path('/uploads/'.$file));
 
-     Image::where('id', $request->id)->all()->delete();
-      return back()->with('danger', 'Image has been deleted!');
+//     Image::where('id', $request->id)->all()->destroy($id);
+//      return back()->with('danger', 'Image has been deleted!');
+
+        Image::destroy($id);
+        return redirect()->back()->with('danger', 'Image has been deleted!');
     }
 }

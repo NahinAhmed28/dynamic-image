@@ -13,6 +13,7 @@ class DashboardController extends Controller
         $data = [
             'images' =>Image::get(),
             'titles' =>Title::get(),
+
         ];
 
         return view ('dashboard',$data);
